@@ -1401,6 +1401,7 @@ public class DcTracker extends DcTrackerBase {
      * @return true if only single DataConnection is allowed
      */
     private boolean isOnlySingleDcAllowed(int rilRadioTech) {
+        if (!SUPPORT_MPDN) { return true; }
         int[] singleDcRats = mPhone.getContext().getResources().getIntArray(
                 com.android.internal.R.array.config_onlySingleDcAllowed);
         boolean onlySingleDcAllowed = false;
